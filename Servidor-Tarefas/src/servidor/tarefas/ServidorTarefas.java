@@ -10,6 +10,8 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+
+
 /**
  *
  * @author lucat
@@ -17,25 +19,25 @@ import java.util.concurrent.Executors;
 public class ServidorTarefas {
 
     /**
-     * @param args the command line arguments
+     * 
+     * @param args
      * @throws java.lang.Exception
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception{
         
-                
-                ServerSocket servidor = new ServerSocket(12345);
-                ExecutorService threadPool = Executors.newFixedThreadPool(2); // Método definir um máximo de threads
-                
-                while(true){
-                    Socket socket = servidor.accept();
-                    
-                    
-                    DistribuirTarefas distribuirTarefas = new DistribuirTarefas(socket);
-                    threadPool.execute(distribuirTarefas); //Reaproveitamento de threads
-                    System.out.println("Aceitando novo cliente" + socket.getPort());              
-                    
-                }
-        // TODO code application logic here
+        ServerSocket servidor = new ServerSocket(8000);
+        ExecutorService threadPool = Executors.newFixedThreadPool(4); // Método definir um máximo de threads
+        boolean wi = true;
+        while(wi)
+        {     
+            
+            Socket socket;
+            socket = servidor.accept();
+            
+            threndTarefas distribuirTarefas = new threndTarefas(socket);
+            threadPool.execute(distribuirTarefas);
+        }           
+        
     }
     
 }
