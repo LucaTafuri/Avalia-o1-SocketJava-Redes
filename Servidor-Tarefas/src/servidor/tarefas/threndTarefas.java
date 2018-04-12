@@ -106,7 +106,7 @@ private Socket socket;
             //encerra a resposta
             resposta.flush();
     } catch (IOException ex) {
-        
+        System.out.println("Erro na requisicao html");
     }
      
     }

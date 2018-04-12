@@ -26,7 +26,7 @@ public class ServidorTarefas {
     public static void main(String[] args) throws Exception{
         
         ServerSocket servidor = new ServerSocket(8000);
-        ExecutorService threadPool = Executors.newFixedThreadPool(4); // Método definir um máximo de threads
+        ExecutorService threadPool = Executors.newFixedThreadPool(5); // Método definir um máximo de threads
         boolean wi = true;
         while(wi)
         {     
